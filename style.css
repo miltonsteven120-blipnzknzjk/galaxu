@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', cursive;
+  overflow: hidden;
+  background: radial-gradient(circle at bottom, #0b0c2d, #000);
+}
+
+#scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#stars::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20% 30%, white, transparent),
+    radial-gradient(1px 1px at 80% 40%, white, transparent),
+    radial-gradient(1px 1px at 50% 70%, white, transparent),
+    radial-gradient(2px 2px at 60% 20%, white, transparent);
+  animation: twinkle 6s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .4; }
+  to { opacity: 1; }
+}
+
+.tulips {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.tulip {
+  width: 120px;
+  height: 300px;
+  background: url("assets/img/tulip-closed.png") no-repeat center/contain;
+  cursor: pointer;
+  transition: transform 1s;
+}
+
+.tulip.open {
+  background-image: url("assets/img/tulip-open.png");
+  transform: scale(1.1);
+}
+
+#message {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 70%;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 2s;
+  white-space: pre-line;
+}
+
+#message.show {
+  opacity: 1;
+}
